@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Usuarios</title>
+</head>
+<body>
+  <h1>Lista de Usuarios</h1>
+  <ul>
+    <% users.forEach(user => { %>
+      <li>
+        
+          <h2><a href="/users/<%= user.id %>"><%= user.username %></a></h2>
+   
+        <div>Avatar: <img src="<%= user.avatar %>" alt="<%= user.username %>"></div>
+        <div>Created: <%= user.created %></div>
+      </li>
+    <% }); %>
+  </ul>
+   <a href="/">Volver al Inicio</a>
+</body>
+</html>

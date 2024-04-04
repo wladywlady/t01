@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Inicio</title>
+</head>
+  <form action="/populate" method="post">
+    <button type="submit">Poblar DB</button>
+  </form>
+  <form action="/reset" method="post">
+    <button type="submit">Reiniciar DB</button>
+  </form>
+<body>
+  <h1>Inicio</h1>
+  <h2>Posts Recientes</h2>
+  <ul>
+    <% posts.forEach(post => { %>
+      <li>
+        <div>
+          <img src="<%= post.user.avatar %>" >
+          <h2><a href="/users/<%= post.id %>"><%= post.user.username %></a></h2>
+   
+        </div>
+
+        <div>
+           <h3><%= post.title%></h3>
+          <div>Content: <%= post.content %></div>
+          <div>Image: <img src="<%= post.image %>" alt="<%= post.title %>"></div>
+          <div>Created: <%= post.created %></div>
+        </div>
+        <h4>Comentarios</h4>
+        <ul>
+          <% post.comments.forEach(comment => { %>
+            <li>
+              <h4><a href="/users/<%= comment.user.id %>"><%= comment.user.username %></a></h4>
+              <div>Content: <%= comment.content %></div>
+              <div>Created: <%= comment.created %></div>
+            </li>
+          <% }); %>
+        </ul>
+      </li>
+    <% }); %>
+  </ul>
+</body>
+</html>

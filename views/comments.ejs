@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Comentarios</title>
+</head>
+<body>
+
+  <h1>Lista de Comentarios</h1>
+  <ul>
+    <% comments.forEach(comment => { %>
+      <li>
+        <p>ID: <%= comment.id %></p>
+        <p>Contenido: <%= comment.content %></p>
+        <p>Usuario ID: <%= comment.userId %></p>
+        <p>Post ID: <%= comment.postId %></p>
+        <p>Fecha de creación: <%= comment.created %></p>
+      </li>
+    <% }); %>
+  </ul>
+   <a href="/">Volver al Inicio</a>
+</body>
+</html>

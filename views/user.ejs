@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil de Usuario</title>
+</head>
+<body>
+  <h1>Perfil de <%= user.username %></h1>
+  <div>Username: <%= user.username %></div>
+  <div>Avatar: <img src="<%= user.avatar %>" alt="<%= user.username %>"></div>
+  <div>Created: <%= user.created %></div>
+  
+  <h2>Posts de <%= user.username %></h2>
+  <ul>
+    <% userPosts.forEach(post => { %>
+      <li>
+        <div>Title: <%= post.title %></div>
+        <div>Content: <%= post.content %></div>
+        <div>Image: <img src="<%= post.image %>" alt="<%= post.title %>"></div>
+        <div>Created: <%= post.created %></div>
+      </li>
+    <% }); %>
+  </ul>
+    <h2>Comentarios de <%= user.username %></h2>
+  <ul>
+    <% userComments.forEach(comment => { %>
+
+        <li>
+        <div>Contenido: <%= comment.content %></div>
+        <div>Post ID: <%= comment.postId %></div>
+
+        <div>Fecha de creación: <%= comment.created %></div>
+      </li>
+
+
+ 
+    <% }); %>
+  </ul>
+   <a href="/">Volver al Inicio</a>
+</body>
+</html>

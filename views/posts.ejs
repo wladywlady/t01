@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Posts</title>
+</head>
+<body>
+  <h1>Lista de Posts</h1>
+  <ul>
+    <% data.posts.forEach(post => { %>
+      <li>
+        <h2><a href="/posts/<%= post.id %>"><%= post.title %></a></h2>
+        <p>Contenido: <%= post.content %></p>
+           <%  const id = parseInt(post.userId); %>
+           <%  const user = data.users.find((user) => user.id === id); %>
+        
+        <p>Autor: 
+                  <a href="/users/<%= id %>"><%= user.username %></a></p>
+   
+        <p>Fecha de creación: <%= post.created %></p>
+      </li>
+    <% }); %>
+  </ul>
+   <a href="/">Volver al Inicio</a>
+</body>
+</html>

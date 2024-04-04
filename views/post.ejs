@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle del Post</title>
+</head>
+<body>
+  <h1>Detalle del Post</h1>
+  <div>
+    <h2><%= post.title %></h2>
+    <p><%= post.content %></p>
+    <img src="<%= post.image %>" alt="<%= post.title %>">
+             <%  const id = parseInt(post.userId); %>
+           <%  const user = data.users.find((user) => user.id === id); %>
+        <p>Autor: 
+                  <a href="/users/<%= id %>"><%= user.username %></a></p>
+   
+
+    <p>Fecha de creación: <%= post.created %></p>
+  </div>
+   <a href="/">Volver al Inicio</a>
+</body>
+</html>
